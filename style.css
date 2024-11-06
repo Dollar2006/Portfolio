@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    min-width: 100vw;
+    overflow-x: hidden;
+    background: #1A1817;
+}
+#Inicio{
+    margin-top: 70px;
+}
+#Inicio section p{
+    width: 90%;
+}
+#Inicio img{
+    height: 300px;
+}
+h1 .Lincoln{
+    background: -webkit-linear-gradient(40deg,#023670, #6CB0FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+.Lincoln::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1A1817;
+    border-left: 2px solid #6CB0FF;
+    animation: escrever 3s steps(7) infinite;
+}
+@keyframes escrever{
+    40%,60%{
+        left: 100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+@media (max-width: 800px){
+    #SobreMim{
+        flex-direction: column-reverse;
+    }
+    #SobreMim img{
+        width: 50%;
+        align-self: center;
+        height: calc(500px);
+        margin-bottom: 20px;
+    }
+}
+.Modelo{
+    transition: .5s ease;
+}
+.Modelo:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
