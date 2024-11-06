@@ -125,8 +125,14 @@ h1 .Lincoln{
         height: 300px;
         margin-bottom: 20px;
     }
+    #Projetos section{
+        flex-wrap: wrap;
+    }
+    #Projetos section .card{
+        width: 100%;
+    }
 }
-@media (max-width: 700px){
+@media (max-width: 600px){
     #SobreMim section img{
         width: 50%;
         align-self: center;
@@ -139,11 +145,14 @@ h1 .Lincoln{
         height: 250px;
         margin-bottom: 20px;
     }
-    #Projetos section{
-        flex-wrap: wrap;
+ 
+    #Habilidades div{
+        flex-direction: column;
     }
-    #Projetos section .card{
+    #Habilidades div .texto-habilidade{
         width: 100%;
     }
 }
-
+#Certificacoes .card{
+    border: 2px solid #1865BF;
+}

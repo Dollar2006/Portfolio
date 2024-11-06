@@ -24,8 +24,15 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#Projetos">Projetos</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Curriculo</a>
+                  <li class="nav-item dropdown"> 
+                   <button class="btn btn-dark dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                      Curriculo
+                   </button>
+                   <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#Habilidades">Habilidades</a></li>
+                    <li><a class="dropdown-item" href="#">Certificações</a></li>
+                    <li><a class="dropdown-item" href="#">Experiências</a></li>
+                  </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Contato</a>
@@ -50,8 +57,8 @@
             <p class="align-self-center">Eu me chamo Lincoln Borsoi Moreira, moro atualmente em Caçapava - SP, entrei no ramo da informática durante meu périodo do ensino médio quando decidi fazer um curso técnico em informática. <br> Hoje estou cursando Análise e Desenvolvimento de Sistemas na Fatec Jessen Vidal em São José dos Campos - SP </p>
         </section>
     </section>
-    <section id="Projetos" class="container-lg">
-      <h1>Projetos: </h1>
+    <section id="Projetos" class="container-lg mt-5">
+      <h1 class="fw-bold" style="color: #499DFF;">Projetos: </h1>
       <section class="container-fluid d-flex gap-3">
         <div class="card">
           <div class="container-lg mt-2 image-container">
@@ -74,7 +81,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">Coding Coffee Academy</h5>
-            <p class="card-text">Projeto feito como desafio para praticar a aplicação do Framework front-end Bootstrap, foi produzido um site ainda de 3 páginas que tenham obrigatóriamente 8 componentes do Bootstrap</p>
+            <p class="card-text">O projeto é um site de 3 páginas desenvolvido como desafio para praticar o uso do Bootstrap. Ele inclui 8 componentes obrigatórios do framework.</p>
             <p class="card-text" style="color: #499DFF;">Tecnologias utilizadas: HTML,CSS,JS,Bootstrap</p>
             <button class="botaoProj">
               <a href="https://desafio-2-estado-da-arte.vercel.app">
@@ -100,7 +107,115 @@
         </div>
       </section>
     </section>
+    <section id="Curriculo" class="container-xxl mt-5">
+      <section id="Habilidades" class="container-fluid">
+        <h1 class="fw-bold" style="color: #499DFF;">Curriculo - Habilidades</h1>
+        <div class="d-flex">
+          <section class="texto-habilidade mt-5">
+            <h2 style="color: #499DFF;">
+              HTML,CSS,JS
+            </h2>
+            <p>
+              HTML, CSS e JavaScript formam a base do desenvolvimento web e são indispensáveis para criar aplicações completas e interativas. Esses três pilares permitem estruturar, estilizar e adicionar funcionalidades dinâmicas às páginas, sendo fundamental entender bem cada um para entregar experiências eficazes e modernas aos usuários.
+            </p>
+          </section>
+          <section class="Imagens d-flex justify-content-center">
+            <img src="img/logo-html5.svg" alt="" width="80px" class="mb-5">
+            <img src="img/logo-css3.svg" alt="" width="80px">
+            <img src="img/logo-javascript.svg" alt="" width="80px" class="mb-5">
+          </section>
+        </div>
+        <div class="d-flex">
+          <section class="texto-habilidade mt-5 mb-5">
+            <h2 style="color: #499DFF;">
+              Python
+            </h2>
+            <p>
+              Python é uma linguagem essencial para o desenvolvimento de aplicações modernas, conhecida por sua simplicidade e versatilidade. Com uma sintaxe clara e bibliotecas robustas, permite desde o desenvolvimento web até a ciência de dados e automação. Dominar Python é fundamental para criar soluções eficientes e escaláveis, trazendo agilidade e poder ao desenvolvimento de projetos em diversas áreas.
+            </p>
+          </section>
+          <section class="Imagens d-flex justify-content-center">
+            <img src="img/python.svg" alt="" width="80px" class="mb-5">
+          </section>
+        </div>
+      </section>
+      <h1 class="fw-bold mb-3" style="color: #499DFF;">Curriculo - Certificações</h1>
+      <section id="Certificacoes" class="container-fluid d-flex gap-3">
+        <div class="card" style="width: 33.3%;">
+          <div class="card-body">
+            <h5 class="card-title">NDG LINUX ESSENTIALS</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Instituição: Cisco Networking Academy</li>
+            <li class="list-group-item">Horas estudadas: 8 hrs</li>
+            <li class="list-group-item">Instrutor: António Egydio</li>
+            <li class="list-group-item">Data de conclusão: 5/09/2024</li>
+          </ul>
+        </div>
+        <div class="card"style="width: 33.3%;">
+          <div class="card-body">
+            <h5 class="card-title"> DATA SCIENCE: VISUALIZAÇÃO DE DADOS COM PYTHON</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Instituição: Udemy</li>
+            <li class="list-group-item">Horas estudadas: 2 hrs</li>
+            <li class="list-group-item">Instrutor: Diego Mariano</li>
+            <li class="list-group-item">Data de conclusão: 29/02/2024</li>
+          </ul>
+        </div>
+        <div class="card" style="width: 33.3%;">
+          <div class="card-body">
+            <h5 class="card-title">Curso Técnico em informática</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Instituição: Colégio Comercial Caçapava</li>
+            <li class="list-group-item">Semestres estudados: 4 semestres</li>
+            <li class="list-group-item">Instrutor: Equipe docente do colégio</li>
+            <li class="list-group-item">Data de conclusão: 18/12/2023</li>
+          </ul>
+        </div>
+      </section>
+      <section id="Experiencias" class="container-fluid mt-5">
+        <h1 class="fw-bold" style="color: #499DFF;">Curriculo - Experiências</h1>
+        <section class="d-flex gap-3">
+          <ul>
+            <li onclick="alterarExperiencia('voluntario')" style="cursor: pointer;">Trabalho voluntário - São João 2024</li>
+            <li onclick="alterarExperiencia('projetoAPI')" style="cursor: pointer;">Projeto API - Metodologia Scrum</li>
+          </ul>
+          <div class="ms-5 resumo">
+            <div class="d-flex justify-content-between">
+              <h3 id="titulo-experiencia">
+                Trabalho voluntário - São João 2024
+              </h3>
+              <h5 id="data-experiencia">jun - 2024</h5>
+            </div>
+            <p style="color: #499DFF;" id="resumo-experiencia">
+              Atuei voluntariamente na banca de bebidas da minha tia na Festa de São João em Caçapava, SP, auxiliando na organização e logística. 
+              Minha principal função foi retirar bebidas do freezer e repassá-las aos colegas que atendiam no caixa, garantindo um fluxo eficiente e ágil no atendimento ao público. 
+              Essa experiência me permitiu desenvolver habilidades de trabalho em equipe e aprender a lidar com demandas rápidas em um ambiente dinâmico
+            </p>
+          </div>
+        </section>
+      </section>
+    </section>
   </main>
 </body>
+<script>
+         function alterarExperiencia(tipo) {
+            const titulo = document.getElementById("titulo-experiencia");
+            const data = document.getElementById("data-experiencia");
+            const resumo = document.getElementById("resumo-experiencia");
+
+            if (tipo === 'voluntario') {
+                titulo.textContent = "Trabalho voluntário - São João 2024";
+                data.textContent = "jun/2024";
+                resumo.textContent = "Atuei voluntariamente na banca de bebidas da minha tia na Festa de São João em Caçapava, SP, auxiliando na organização e logística. Minha principal função foi retirar bebidas do freezer e repassá-las aos colegas que atendiam no caixa, garantindo um fluxo eficiente e ágil no atendimento ao público. Essa experiência me permitiu desenvolver habilidades de trabalho em equipe e aprender a lidar com demandas rápidas em um ambiente dinâmico.";
+            } else if (tipo === 'projetoAPI') {
+                titulo.textContent = "Projeto API - Metodologia Scrum";
+                data.textContent = "ago-dez/2024 ";
+                resumo.textContent = "Desenvolvi uma API usando princípios de metodologia ágil Scrum, colaborando com uma equipe para organizar sprints e realizar entregas incrementais do projeto. Esse trabalho reforçou minha compreensão do ciclo de desenvolvimento de software e a importância do trabalho colaborativo.";
+            }
+        }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
