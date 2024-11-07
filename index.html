@@ -30,12 +30,12 @@
                    </button>
                    <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="#Habilidades">Habilidades</a></li>
-                    <li><a class="dropdown-item" href="#">Certificações</a></li>
-                    <li><a class="dropdown-item" href="#">Experiências</a></li>
+                    <li><a class="dropdown-item" href="#Certificacoes">Certificações</a></li>
+                    <li><a class="dropdown-item" href="#Experiencias">Experiências</a></li>
                   </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contato</a>
+                    <a class="nav-link active" aria-current="page" href="#Contato">Contato</a>
                   </li>
                 </ul>
               </div>
@@ -141,7 +141,7 @@
       </section>
       <h1 class="fw-bold mb-3" style="color: #499DFF;">Curriculo - Certificações</h1>
       <section id="Certificacoes" class="container-fluid d-flex gap-3">
-        <div class="card" style="width: 33.3%;">
+        <div class="card" >
           <div class="card-body">
             <h5 class="card-title">NDG LINUX ESSENTIALS</h5>
           </div>
@@ -152,7 +152,7 @@
             <li class="list-group-item">Data de conclusão: 5/09/2024</li>
           </ul>
         </div>
-        <div class="card"style="width: 33.3%;">
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title"> DATA SCIENCE: VISUALIZAÇÃO DE DADOS COM PYTHON</h5>
           </div>
@@ -163,7 +163,7 @@
             <li class="list-group-item">Data de conclusão: 29/02/2024</li>
           </ul>
         </div>
-        <div class="card" style="width: 33.3%;">
+        <div class="card" >
           <div class="card-body">
             <h5 class="card-title">Curso Técnico em informática</h5>
           </div>
@@ -179,8 +179,8 @@
         <h1 class="fw-bold" style="color: #499DFF;">Curriculo - Experiências</h1>
         <section class="d-flex gap-3">
           <ul>
-            <li onclick="alterarExperiencia('voluntario')" style="cursor: pointer;">Trabalho voluntário - São João 2024</li>
-            <li onclick="alterarExperiencia('projetoAPI')" style="cursor: pointer;">Projeto API - Metodologia Scrum</li>
+            <li onclick="alterarExperiencia('voluntario')" style="cursor: pointer;" class="itemExp selecionado">Trabalho voluntário - São João 2024</li>
+            <li onclick="alterarExperiencia('projetoAPI')"  style="cursor: pointer;" class="itemExp">Projeto API - Metodologia Scrum</li>
           </ul>
           <div class="ms-5 resumo">
             <div class="d-flex justify-content-between">
@@ -199,8 +199,40 @@
       </section>
     </section>
   </main>
+  <footer class="container-xl" id="Contato">
+    <h1 style="color: #499DFF;">Contato</h1>
+    <section class="container-fluid d-flex">
+        <form class="d-flex flex-column ms-5 gap-4 needs-validation" novalidate>
+          <input type="text" class="form-control" placeholder="Insira seu nome: "  required>
+          <input type="email" class="form-control" placeholder="Insira seu email: "  required>
+          <input type="text" class="form-control" placeholder="Insira seu telefone: "  required>
+          <textarea rows="3">Insira aqui sua mensagem...</textarea>
+          <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+        </form>
+      <section class="d-flex flex-column ms-5 gap-4">
+        <div class="email">
+          <h2>Email para contato</h2>
+          <p>lincolnborsoimoreira@gmail.com</p>
+        </div>
+        <div class="socialmedia">
+          <ul style="list-style: none;">
+            <li><img src="img/linkedin.svg" alt="" width="50px" class="me-2">/lincoln-borsoi-35b13b23b</li>
+            <li><img src="img/github_6424084.svg"  width="50px" alt="" class="me-2">/Dollar2006</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </footer>
 </body>
 <script>
+    const itens = document.querySelectorAll('.itemExp');
+         function alterarSelecionado(event){
+          itens.forEach(item => item.classList.remove('selecionado'))
+          event.target.classList.add('selecionado')
+         }
+         itens.forEach(itemExp => {
+          itemExp.addEventListener('click', alterarSelecionado)
+         })
          function alterarExperiencia(tipo) {
             const titulo = document.getElementById("titulo-experiencia");
             const data = document.getElementById("data-experiencia");
@@ -214,8 +246,27 @@
                 titulo.textContent = "Projeto API - Metodologia Scrum";
                 data.textContent = "ago-dez/2024 ";
                 resumo.textContent = "Desenvolvi uma API usando princípios de metodologia ágil Scrum, colaborando com uma equipe para organizar sprints e realizar entregas incrementais do projeto. Esse trabalho reforçou minha compreensão do ciclo de desenvolvimento de software e a importância do trabalho colaborativo.";
-            }
         }
+      }
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

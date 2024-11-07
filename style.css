@@ -152,7 +152,37 @@ h1 .Lincoln{
     #Habilidades div .texto-habilidade{
         width: 100%;
     }
+    #Certificacoes{
+        flex-wrap: wrap;    
+    }
+    #Certificacoes .card{
+        width: 100%;
+    }
+    #Experiencias section{
+        flex-direction: column;
+    }
+    #Experiencias ul li{
+        margin-bottom: 5px;
+    }
+    footer section {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 #Certificacoes .card{
     border: 2px solid #1865BF;
+}
+#Experiencias ul {
+    list-style: none;
+}
+#Experiencias ul li{
+    text-align: center;
+    padding: 5px;
+    transition: 1s ease;
+}
+.selecionado{
+    border-left: 5px solid #71B2FF;
+}
+footer section form, footer section section{
+    width: 50%;
 }
