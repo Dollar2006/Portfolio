@@ -3,8 +3,13 @@
 :root {
     --primary-color: #499DFF;
     --secondary-color: #1865BF;
-    --background-color: #1A1817;
-    --text-color: #ffffff;
+    --background-color: #0A192F;
+    --text-color: #E6F1FF;
+    --accent-color: #64FFDA;
+    --dark-accent: #112240;
+    --neon-blue: #00F3FF;
+    --neon-purple: #FF00FF;
+    --gold: #FFD700;
     --transition-speed: 0.3s;
 }
 
@@ -35,7 +40,9 @@ body {
 /* Header e Navegação */
 .navbar {
     backdrop-filter: blur(10px);
-    background-color: rgba(26, 24, 23, 0.9) !important;
+    background-color: rgba(16, 0, 43, 0.9) !important;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(157, 78, 221, 0.2);
 }
 
 .navbar-brand img {
@@ -49,6 +56,7 @@ body {
 .nav-link {
     position: relative;
     transition: color var(--transition-speed);
+    font-family: 'MedievalSharp', cursive;
 }
 
 .nav-link::after {
@@ -64,6 +72,18 @@ body {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link::before {
+    content: '⚜';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+}
+
+.nav-link:hover::before {
+    opacity: 1;
 }
 
 /* Seção Início */
@@ -90,7 +110,7 @@ body {
 
 /* Efeito de digitação */
 h1 .Lincoln {
-    background: -webkit-linear-gradient(40deg, var(--secondary-color), var(--primary-color));
+    background: -webkit-linear-gradient(40deg, var(--dark-accent), var(--primary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -104,7 +124,7 @@ h1 .Lincoln {
     height: 100%;
     width: 100%;
     background-color: var(--background-color);
-    border-left: 2px solid var(--primary-color);
+    border-left: 2px solid var(--gold);
     animation: escrever 3s steps(7) infinite;
 }
 
@@ -117,13 +137,16 @@ h1 .Lincoln {
 .card {
     width: 50%;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     margin-bottom: 20px;
+    background: rgba(16, 0, 43, 0.8);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.2);
 }
 
 .image-container {
@@ -141,6 +164,34 @@ h1 .Lincoln {
 
 .card:hover .image-container img {
     transform: scale(1.05);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-color) 50%, 
+        transparent 100%
+    );
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-color) 50%, 
+        transparent 100%
+    );
 }
 
 /* Container dos cards */
@@ -162,20 +213,49 @@ h1 .Lincoln {
     flex: 1 1 300px;
     min-width: 300px;
     max-width: 400px;
+    border: 2px solid var(--primary-color);
 }
 
 /* Botões */
 .botaoProj {
     background: linear-gradient(var(--background-color), var(--background-color)) padding-box,
-                linear-gradient(to right, var(--secondary-color), var(--primary-color)) border-box;
+                linear-gradient(to right, var(--dark-accent), var(--primary-color)) border-box;
     border-radius: 50em;
     padding: 10px 20px;
     border: 4px solid transparent;
     transition: transform var(--transition-speed);
+    position: relative;
+    overflow: hidden;
 }
 
 .botaoProj:hover {
     transform: scale(1.05);
+}
+
+.botaoProj::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(157, 78, 221, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
 }
 
 .botaoProj a {
@@ -240,9 +320,14 @@ h1 .Lincoln {
     }
 
     #SobreMim section img {
-        width: 50%;
-        height: auto;
-        margin: 20px auto;
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    #SobreMim p {
+        width: 100%;
+        padding: 20px 0;
     }
 
     #Habilidades div {
@@ -362,7 +447,7 @@ h1 .Lincoln {
     top: 0;
     left: 0.4%;
     bottom: 0;
-    border-left: 10px solid green;
+    border-left: 10px solid var(--primary-color);
     border-radius: 2px;
     z-index: 0; 
 }
@@ -373,13 +458,13 @@ h1 .Lincoln {
     top: 0;
     left: 0.4%;
     bottom: 0;
-    border-left: 10px solid rgb(214, 218, 0);
+    border-left: 10px solid var(--gold);
     border-radius: 2px;
     z-index: 0; 
 }
 
 #Certificacoes .card{
-    border: 2px solid #1865BF;
+    border: 2px solid var(--primary-color);
 }
 #Experiencias ul {
     list-style: none;
@@ -408,8 +493,8 @@ footer section form, footer section section{
 }
 
 .experiencia-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
@@ -418,13 +503,13 @@ footer section form, footer section section{
 }
 
 .experiencia-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(157, 78, 221, 0.1);
     transform: translateX(5px);
 }
 
 .experiencia-item.selecionado {
     border-left: 4px solid var(--primary-color);
-    background: rgba(73, 157, 255, 0.1);
+    background: rgba(157, 78, 221, 0.1);
 }
 
 .experiencia-header {
@@ -453,9 +538,10 @@ footer section form, footer section section{
 
 .experiencia-detalhes {
     flex: 1;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(16, 0, 43, 0.8);
     border-radius: 8px;
     padding: 25px;
+    border: 1px solid rgba(157, 78, 221, 0.2);
 }
 
 .experiencia-conteudo h2 {
@@ -544,8 +630,8 @@ footer section form, footer section section{
 .contato-card {
     flex: 1;
     min-width: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     border-radius: 12px;
     padding: 25px;
     display: flex;
@@ -556,14 +642,14 @@ footer section form, footer section section{
 
 .contato-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(157, 78, 221, 0.1);
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.2);
 }
 
 .contato-icon {
     width: 50px;
     height: 50px;
-    background: rgba(73, 157, 255, 0.1);
+    background: rgba(157, 78, 221, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -589,12 +675,12 @@ footer section form, footer section section{
 }
 
 .contato-detalhes a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .contato-social {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     border-radius: 12px;
     padding: 25px;
 }
@@ -616,8 +702,8 @@ footer section form, footer section section{
     align-items: center;
     gap: 12px;
     padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
     border-radius: 8px;
     text-decoration: none;
     color: var(--text-color);
@@ -626,7 +712,7 @@ footer section form, footer section section{
 
 .social-card:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(157, 78, 221, 0.1);
     color: var(--primary-color);
 }
 
@@ -665,5 +751,474 @@ footer section form, footer section section{
     .social-card {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Atualização dos elementos de experiência */
+.experiencia-item {
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.experiencia-item:hover {
+    background: rgba(157, 78, 221, 0.1);
+}
+
+.experiencia-item.selecionado {
+    border-left: 4px solid var(--primary-color);
+    background: rgba(157, 78, 221, 0.1);
+}
+
+.experiencia-header .data {
+    color: var(--primary-color);
+}
+
+.experiencia-detalhes {
+    background: rgba(16, 0, 43, 0.8);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.experiencia-info .periodo,
+.experiencia-info .local {
+    color: var(--primary-color);
+}
+
+/* Atualização dos elementos de certificação */
+#Certificacoes .card {
+    border: 2px solid var(--primary-color);
+}
+
+/* Atualização dos elementos de habilidade */
+.texto-habilidade h2 {
+    color: var(--primary-color);
+}
+
+/* Atualização dos elementos de navegação */
+.nav-link::after {
+    background-color: var(--primary-color);
+}
+
+.dropdown-menu {
+    background-color: var(--background-color);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.dropdown-item {
+    color: var(--text-color);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(157, 78, 221, 0.1);
+    color: var(--primary-color);
+}
+
+/* Estilos Góticos */
+.gothic-border {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(90deg, 
+        var(--primary-color) 0%, 
+        var(--dark-accent) 20%, 
+        var(--gold) 40%, 
+        var(--dark-accent) 60%, 
+        var(--primary-color) 80%, 
+        var(--dark-accent) 100%
+    );
+    z-index: 1000;
+}
+
+.gothic-border:first-child {
+    top: 0;
+}
+
+.gothic-border:last-child {
+    bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'MedievalSharp', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Atualização dos elementos de experiência */
+.experiencia-item::before {
+    content: '⚜';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--gold);
+    opacity: 0.3;
+    font-size: 1.2rem;
+}
+
+/* Atualização dos elementos de certificação */
+#Certificacoes .card::before {
+    content: '✧';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--gold);
+    opacity: 0.3;
+    font-size: 1.5rem;
+}
+
+/* Atualização do footer */
+footer {
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 -2px 10px rgba(157, 78, 221, 0.2);
+}
+
+/* Atualização dos elementos de habilidade */
+.texto-habilidade h2::before {
+    content: '⚜';
+    margin-right: 10px;
+    color: var(--gold);
+}
+
+/* Atualização dos elementos de projeto */
+#Projetos h1::before {
+    content: '✧';
+    margin-right: 10px;
+    color: var(--gold);
+}
+
+/* Atualização dos elementos de sobre mim */
+#SobreMim h1::before {
+    content: '⚜';
+    margin-right: 10px;
+    color: var(--gold);
+}
+
+/* Atualização dos elementos de contato */
+#Contato h1::before {
+    content: '✧';
+    margin-right: 10px;
+    color: var(--gold);
+}
+
+/* Atualização dos elementos de contato */
+.contato-card::before {
+    content: '✧';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--gold);
+    opacity: 0.3;
+    font-size: 1.5rem;
+}
+
+/* Estilos Cyberpunk */
+.cyber-border {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--neon-blue) 0%, 
+        var(--primary-color) 25%, 
+        var(--neon-purple) 50%, 
+        var(--primary-color) 75%, 
+        var(--neon-blue) 100%
+    );
+    z-index: 1000;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.cyber-border:first-child {
+    top: 0;
+}
+
+.cyber-border:last-child {
+    bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px var(--neon-blue);
+    letter-spacing: 2px;
+}
+
+.card {
+    position: relative;
+    background: var(--dark-accent);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(73, 157, 255, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--neon-blue) 0%, 
+        var(--primary-color) 50%, 
+        var(--neon-blue) 100%
+    );
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--neon-blue) 0%, 
+        var(--primary-color) 50%, 
+        var(--neon-blue) 100%
+    );
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.nav-link {
+    position: relative;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+.nav-link::before {
+    content: '>';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+    color: var(--neon-blue);
+}
+
+.nav-link:hover::before {
+    opacity: 1;
+}
+
+.botaoProj {
+    position: relative;
+    overflow: hidden;
+    background: var(--dark-accent);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(73, 157, 255, 0.3);
+}
+
+.botaoProj::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(100, 255, 218, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: cyber-shine 3s infinite;
+}
+
+@keyframes cyber-shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Atualização do efeito de digitação */
+.Lincoln::before {
+    border-left: 2px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Atualização dos cards de contato */
+.contato-card {
+    background: var(--dark-accent);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(73, 157, 255, 0.2);
+}
+
+.contato-card::before {
+    content: '>';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--neon-blue);
+    opacity: 0.5;
+    font-size: 1.2rem;
+}
+
+/* Atualização dos cards de experiência */
+.experiencia-item {
+    background: var(--dark-accent);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(73, 157, 255, 0.2);
+}
+
+.experiencia-item::before {
+    content: '>';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--neon-blue);
+    opacity: 0.5;
+    font-size: 1.2rem;
+}
+
+/* Atualização dos cards de certificação */
+#Certificacoes .card {
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(73, 157, 255, 0.2);
+}
+
+#Certificacoes .card::before {
+    content: '>';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--neon-blue);
+    opacity: 0.5;
+    font-size: 1.2rem;
+}
+
+/* Atualização do footer */
+footer {
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(73, 157, 255, 0.3);
+}
+
+/* Atualização dos elementos de habilidade */
+.texto-habilidade h2::before {
+    content: '>';
+    margin-right: 10px;
+    color: var(--neon-blue);
+}
+
+/* Atualização dos elementos de projeto */
+#Projetos h1::before {
+    content: '>';
+    margin-right: 10px;
+    color: var(--neon-blue);
+}
+
+/* Atualização dos elementos de sobre mim */
+#SobreMim h1::before {
+    content: '>';
+    margin-right: 10px;
+    color: var(--neon-blue);
+}
+
+/* Atualização dos elementos de contato */
+#Contato h1::before {
+    content: '>';
+    margin-right: 10px;
+    color: var(--neon-blue);
+}
+
+/* Efeitos de hover cyberpunk */
+.card:hover, .contato-card:hover, .experiencia-item:hover, .social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(73, 157, 255, 0.4);
+    border-color: var(--neon-blue);
+}
+
+/* Efeito de glitch nos títulos */
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 var(--neon-blue), -0.05em -0.025em 0 var(--neon-purple);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 var(--neon-blue), -0.05em -0.025em 0 var(--neon-purple);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 var(--neon-blue), 0.025em 0.025em 0 var(--neon-purple);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--neon-blue), 0.025em 0.025em 0 var(--neon-purple);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 var(--neon-blue), 0.05em 0 0 var(--neon-purple);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 var(--neon-blue), 0.05em 0 0 var(--neon-purple);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 var(--neon-blue), -0.025em -0.025em 0 var(--neon-purple);
+    }
+}
+
+h1:hover, h2:hover {
+    animation: glitch 1s infinite;
+}
+
+/* Efeito de scanline */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+}
+
+#SobreMim {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#SobreMim section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#SobreMim img.Modelo {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    transition: transform var(--transition-speed);
+    background: transparent;
+}
+
+#SobreMim img.Modelo:hover {
+    transform: scale(1.05);
+}
+
+#SobreMim p {
+    flex: 1;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #SobreMim section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #SobreMim img.Modelo {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    #SobreMim p {
+        width: 100%;
+        padding: 20px 0;
     }
 }
